@@ -1,6 +1,19 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const createPostAndTimeline = /* GraphQL */ `
+  mutation CreatePostAndTimeline($content: String!) {
+    createPostAndTimeline(content: $content) {
+      type
+      id
+      content
+      owner
+      timestamp
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const updatePost = /* GraphQL */ `
   mutation UpdatePost(
     $input: UpdatePostInput!
