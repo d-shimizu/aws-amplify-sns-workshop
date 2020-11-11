@@ -1,5 +1,9 @@
-
-
+## [Start] Set the primary @key. **
+#set( $modelObjectKey = {
+  "followeeId": $util.dynamodb.toDynamoDB($ctx.args.input.followeeId),
+  "followerId": $util.dynamodb.toDynamoDB($ctx.args.input.followerId)
+} )
+## [End] Set the primary @key. **
 #if( $authCondition )
   #set( $condition = $authCondition )
   #if( $modelObjectKey )

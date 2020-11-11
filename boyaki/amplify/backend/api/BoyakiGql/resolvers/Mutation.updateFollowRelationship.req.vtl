@@ -1,6 +1,9 @@
-
-
-
+## [Start] Set the primary @key. **
+#set( $modelObjectKey = {
+  "followeeId": $util.dynamodb.toDynamoDB($ctx.args.input.followeeId),
+  "followerId": $util.dynamodb.toDynamoDB($ctx.args.input.followerId)
+} )
+## [End] Set the primary @key. **
 
 #if( $authCondition && $authCondition.expression != "" )
   #set( $condition = $authCondition )
@@ -40,7 +43,7 @@
 #end
 ## Automatically set the updatedAt timestamp. **
 $util.qr($context.args.input.put("updatedAt", $util.defaultIfNull($ctx.args.input.updatedAt, $util.time.nowISO8601())))
-$util.qr($context.args.input.put("__typename", "Post"))
+$util.qr($context.args.input.put("__typename", "FollowRelationship"))
 ## Update condition if type is @versioned **
 #if( $versionedCondition )
   $util.qr($condition.put("expression", "($condition.expression) AND $versionedCondition.expression"))
