@@ -78,4 +78,4 @@ export default function PostsBySpecifiedUser() {
       />
     </React.Fragment>
   )
-}
+};

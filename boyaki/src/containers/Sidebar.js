@@ -165,4 +165,4 @@ export default function Sidebar({activeListItem}) {
       </List>
     </Drawer>
   )
-}
+};
